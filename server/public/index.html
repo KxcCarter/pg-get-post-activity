@@ -13,22 +13,45 @@
 
 <body>
     <div class="jumbotron">
-        <h1>Ya like (books about) jaaaazz? 🐝</h1>
+        <h1 class="text-center">Ya like (books about) jaaaazz? 🐝</h1>
     </div>
     <div class="container">
-        <h2>Library Collection</h2>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Published</th>
-                </tr>
-            </thead>
-            <tbody class="jsBookTable">
-                <!-- RENDER BOOKS HERE -->
-            </tbody>
-        </table>
+        <div class="row">
+            <div class="col-sm-12 col-md-3 bg-light rounded">
+                <form class="js-add-book">
+                    <div class="form-group">
+                        <label for="jsAddBookTitle">Book Title</label>
+                        <input type="text" class="form-control" id="jsAddBookTitle" />
+                    </div>
+                    <div class="form-group">
+                        <label for="jsAddBookAuthor">Book Author</label>
+                        <input type="text" class="form-control" id="jsAddBookAuthor" />
+                    </div>
+                    <div class="form-group">
+                        <label for="jsAddBookPublished">Date Published</label>
+                        <input type="text" class="form-control" id="jsAddBookPublished" />
+                    </div>
+                    <button type="submit" class="btn btn-success">Add a book!</button>
+                </form>
+            </div>
+
+            <div class="col-sm-12 col-md-9">
+                <h2>Library Collection</h2>
+                <table class="table border">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Published</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class="jsBookTable">
+                        <!-- RENDER BOOKS HERE -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 
