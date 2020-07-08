@@ -1,14 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
+const moment = require('moment');
 
 router.get('/', (req, res) => {
     console.log(`In /books GET`);
-    const queryText = `select * from books`;
+    const queryText = `select * from books;`;
 
     pool
         .query(queryText)
         .then((dbRes) => {
+            // formats date
+            let rows = dbRes.rows;
+            for (let each of rows) {
+                each.published = moment(each.published).format('MMM Do YYYY');
+            }
+
             res.send(dbRes.rows);
         })
         .catch((err) => {
