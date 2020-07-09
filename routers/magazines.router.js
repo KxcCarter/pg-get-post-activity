@@ -18,4 +18,23 @@ router.get('/', (req, res) => {
         });
 });
 
+router.post('/', (req, res) => {
+    console.log(`In /magazines POST`);
+    const queryText = `insert into magazines (title, issue_number, pages) values ($1, $2, $3)`;
+    let title, issue, pages;
+    [title, issue, pages] = [req.body.title, req.body.issue, req.body.pages];
+
+    pool
+        .query(queryText, [title, issue, pages])
+        .then((dbRes) => {
+            console.log(`In dbRes`);
+
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+});
+
 module.exports = router;

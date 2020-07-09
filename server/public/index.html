@@ -16,8 +16,9 @@
         <h1 class="text-center">Bookstore Database</h1>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-3 bg-light rounded">
+        <div class="row d-flex">
+            <div class="col-sm-12 col-md-3 bg-light rounded align-self-start">
+                <h3 class="text-center pt-3">Add a book!</h3>
                 <form class="js-add-book">
                     <div class="form-group">
                         <label for="jsAddBookTitle">Book Title</label>
@@ -31,12 +32,12 @@
                         <label for="jsAddBookPublished">Date Published</label>
                         <input type="date" class="form-control" id="jsAddBookPublished" required />
                     </div>
-                    <button type="submit" class="btn btn-success">Add a book!</button>
+                    <button type="submit" class="btn btn-success">Add!</button>
                 </form>
             </div>
 
-            <div class="col-sm-12 col-md-9">
-                <h2 class="text-center">Library Collection</h2>
+            <div class="col-sm-12 col-md-9 align-self-start">
+                <h2 class="text-center">Book Collection</h2>
                 <table class="table table-striped border">
                     <thead class="thead-dark">
                         <tr>
@@ -46,8 +47,49 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody class="jsBookTable">
+                    <tbody class="jsBookTable overflow-auto">
                         <!-- RENDER BOOKS HERE -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <br />
+        <!-- MAGAZINE COLLECTION -->
+
+        <div class="row d-flex">
+            <div class="col-sm-12 col-md-3 bg-light rounded align-self-start">
+                <h3 class="text-center pt-3">Add a magazine!</h3>
+                <form class="js-add-mag">
+                    <div class="form-group">
+                        <label for="jsAddMagTitle">Magazine Title</label>
+                        <input type="text" class="form-control" id="jsAddMagTitle" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="jsAddMagIssue">Issue Number</label>
+                        <input type="number" class="form-control" id="jsAddMagIssue" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="jsAddMagPages">Number of Pages</label>
+                        <input type="number" class="form-control" id="jsAddMagPages" required />
+                    </div>
+                    <button type="submit" class="btn btn-success">Add!</button>
+                </form>
+            </div>
+
+            <div class="col-sm-12 col-md-9">
+                <h2 class="text-center">Magazine Collection</h2>
+                <table class="table table-striped border">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Magazine Title</th>
+                            <th scope="col">Issue Number</th>
+                            <th scope="col">Number of Pages</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class="jsMagTable overflow-auto">
+                        <!-- RENDER MAGAZINES HERE -->
                     </tbody>
                 </table>
             </div>
