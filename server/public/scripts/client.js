@@ -15,6 +15,22 @@ function init() {
 // -----------------------------
 function getInfo() {
     console.log($(this).data('id'));
+    let peek = $(this).data('id');
+
+    // TODO: When a row is clicked on, a div should appear to the right which displays
+    //      a paragraph about the book which was clicked.
+    //      Clicking on the div a second time should remove the div from the DOM.
+
+    $('.js-mods').append(`
+<div class="col-sm-12 col-md-2 bg-light rounded align-self-start">
+<h4><em>${peek}</em> preview</h4>
+<p>
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+</p>
+</div>
+`);
 }
 
 $(function() {
@@ -38,7 +54,7 @@ function renderBooks() {
         // loops through response from server and renders to the DOM
         for (let each of response) {
             $('.jsBookTable').append(`
-            <tr class="js-library-data" data-id="${each.id}" data-toggle="tooltip" data-placement="right" title="A short description of this particular book should go here.">
+            <tr class="js-library-data" data-id="${each.title}" data-toggle="tooltip" data-placement="right" title="A short description of this particular book should go here.">
             
                 <td>${each.title}</td>
                 <td>${each.author}</td>
@@ -60,7 +76,7 @@ function renderMags() {
         // loops through response from server and renders to the DOM
         for (let each of response) {
             $('.jsMagTable').append(`
-            <tr class="js-library-data" >
+            <tr>
                 <td>${each.title}</td>
                 <td>${each.issue_number}</td>
                 <td>${each.pages}</td>
