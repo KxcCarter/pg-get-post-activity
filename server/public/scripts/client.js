@@ -6,7 +6,22 @@ function init() {
     // sets up event listeners for input forms.
     $('.js-add-book').on('submit', clickAddBook);
     $('.js-add-mag').on('submit', clickAddMag);
+
+    // testing feature to display summary of book when clicked on.
+    $('.jsLibrary').on('click', '.js-library-data', getInfo);
 }
+
+// testing Bootstrap tooltips
+// -----------------------------
+function getInfo() {
+    console.log($(this).data('id'));
+}
+
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip({ boundary: 'window' });
+});
+
+// -----------------------------
 
 function renderAll() {
     // Renders all books and magazines on page load.
@@ -23,7 +38,8 @@ function renderBooks() {
         // loops through response from server and renders to the DOM
         for (let each of response) {
             $('.jsBookTable').append(`
-            <tr>
+            <tr class="js-library-data" data-id="${each.id}" data-toggle="tooltip" data-placement="right" title="A short description of this particular book should go here.">
+            
                 <td>${each.title}</td>
                 <td>${each.author}</td>
                 <td>${each.published}</td>
@@ -44,7 +60,7 @@ function renderMags() {
         // loops through response from server and renders to the DOM
         for (let each of response) {
             $('.jsMagTable').append(`
-            <tr>
+            <tr class="js-library-data" >
                 <td>${each.title}</td>
                 <td>${each.issue_number}</td>
                 <td>${each.pages}</td>

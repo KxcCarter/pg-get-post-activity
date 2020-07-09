@@ -7,13 +7,19 @@
     <title>pg GET POST</title>
     <link rel="stylesheet" href="./vendors/bootstrap.min.css" />
     <link rel="stylesheet" href="./styles/style.css" />
+
     <script src="./vendors/jquery.min.js"></script>
+    <script src="./vendors//bootstrap.bundle.js"></script>
     <script src="./scripts/client.js"></script>
 </head>
 
 <body>
     <div class="jumbotron">
-        <h1 class="text-center">Bookstore Database</h1>
+        <div class="container">
+            <h1 class="text-center display-3">
+                Bookstore Database
+            </h1>
+        </div>
     </div>
     <div class="container">
         <div class="row d-flex">
@@ -38,7 +44,7 @@
 
             <div class="col-sm-12 col-md-9 align-self-start">
                 <h2 class="text-center">Book Collection</h2>
-                <table class="table table-striped border">
+                <table class="table table-striped table-hover border">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Title</th>
@@ -47,7 +53,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody class="jsBookTable overflow-auto">
+                    <tbody class="jsBookTable jsLibrary overflow-auto">
                         <!-- RENDER BOOKS HERE -->
                     </tbody>
                 </table>
@@ -88,13 +94,18 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody class="jsMagTable overflow-auto">
+                    <tbody class="jsMagTable jsLibrary overflow-auto">
                         <!-- RENDER MAGAZINES HERE -->
                     </tbody>
                 </table>
             </div>
         </div>
+        <hr />
     </div>
+
+    <footer class="container">
+        <p>© Kenneth R Carter 2020</p>
+    </footer>
 </body>
 
 </html>
